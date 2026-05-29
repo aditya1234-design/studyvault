@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Admin Login</title>
+
+<link rel="stylesheet"
+href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<nav>
+
+<div class="logo">
+
+📚 StudyVault Admin
+
+</div>
+
+</nav>
+
+<div class="hero">
+
+<h1>Admin Login</h1>
+
+<p>
+Only administrators can access this page
+</p>
+
+</div>
+
+<div style="max-width:500px;margin:auto;padding:20px;">
+
+<form method="POST">
+
+<label>Username</label>
+
+<br><br>
+
+<input
+type="text"
+name="username"
+class="search-box"
+placeholder="Enter Username">
+
+<br><br>
+
+<label>Password</label>
+
+<br><br>
+
+<input
+type="password"
+name="password"
+class="search-box"
+placeholder="Enter Password">
+
+<br><br><br>
+
+<button class="upload-btn">
+
+Login
+
+</button>
+
+</form>
+
+</div>
+
+</body>
+</html>

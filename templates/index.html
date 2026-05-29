@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudyVault</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<nav>
+    <div class="logo">📚 StudyVault</div>
+
+    <div class="nav-links">
+        <a href="/">Home</a>
+        <a href="#subjects">Subjects</a>
+        <a href="/subject/extras">Extras</a>
+        <a href="/upload">Upload</a>
+        <a href="/contact">Contact</a>
+    </div>
+</nav>
+
+<section class="hero">
+
+    <h1>StudyVault</h1>
+
+    <p>
+        Share, Upload and Download Educational Resources
+    </p>
+
+    <form action="/search" method="GET">
+
+        <input
+            type="text"
+            name="q"
+            placeholder="Search Notes..."
+            class="search-box"
+        >
+
+    </form>
+
+</section>
+
+<section class="subjects" id="subjects">
+
+<h2>Subjects</h2>
+
+<div class="card-container">
+
+<a href="/subject/dbms" class="card">
+    DBMS
+</a>
+
+<a href="/subject/web-technology" class="card">
+    Web Technology
+</a>
+
+<a href="/subject/daa" class="card">
+    DAA
+</a>
+
+<a href="/subject/oops-with-c" class="card">
+    OOPS with C++
+</a>
+
+<a href="/subject/soft-computing" class="card">
+    Soft Computing
+</a>
+
+<a href="/subject/dbms-lab" class="card">
+    DBMS Lab
+</a>
+
+<a href="/subject/wt-lab" class="card">
+    WT Lab
+</a>
+
+<a href="/subject/daa-lab" class="card">
+    DAA Lab
+</a>
+
+<a href="/subject/mini-project" class="card">
+    Mini Project
+</a>
+
+<a href="/subject/constitution-of-india" class="card">
+    Constitution of India
+</a>
+
+<a href="/subject/extras" class="card">
+    Extras
+</a>
+
+</div>
+
+</section>
+
+</body>
+</html>

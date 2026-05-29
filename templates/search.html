@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search Results - StudyVault</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="hero">
+
+    <h1>Search Results</h1>
+
+    <form action="/search" method="GET">
+
+        <input
+            type="text"
+            name="q"
+            placeholder="Search Notes..."
+            value="{{ query }}"
+            class="search-box"
+        >
+
+        <button class="upload-btn">
+            Search
+        </button>
+
+    </form>
+
+</div>
+
+<div class="subject-container">
+
+{% if results %}
+
+    {% for material in results %}
+
+    <div class="material-card">
+
+        <h2>{{ material[1] }}</h2>
+
+        <p><strong>Subject:</strong> {{ material[2] }}</p>
+
+        <a
+            href="/download/{{ material[3] }}"
+            class="download-btn"
+        >
+            Download
+        </a>
+
+    </div>
+
+    {% endfor %}
+
+{% else %}
+
+    <div class="material-card">
+
+        <h2>No Results Found</h2>
+
+        <p>
+            No approved study material matches your search.
+        </p>
+
+    </div>
+
+{% endif %}
+
+</div>
+
+</body>
+</html>

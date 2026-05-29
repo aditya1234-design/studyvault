@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>StudyVault Admin</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<div class="admin-layout">
+
+    <div class="sidebar">
+
+        <h2>📚 StudyVault</h2>
+
+        <a href="/dashboard">Dashboard</a>
+
+        <a href="/upload">Public Upload</a>
+
+        <a href="/contact">Contact</a>
+
+        <a href="/logout">Logout</a>
+
+    </div>
+
+    <div class="main-content">
+
+        <h1>Admin Dashboard</h1>
+
+        <div class="stats-container">
+
+            <div class="stat-card">
+                <h2>{{ total_uploads }}</h2>
+                <p>Total Uploads</p>
+            </div>
+
+            <div class="stat-card">
+                <h2>{{ approved_count }}</h2>
+                <p>Approved</p>
+            </div>
+
+            <div class="stat-card">
+                <h2>{{ pending_count }}</h2>
+                <p>Pending</p>
+            </div>
+
+        </div>
+
+        <div class="admin-upload">
+
+            <h2>Upload Material</h2>
+
+            <form
+                action="/admin-upload"
+                method="POST"
+                enctype="multipart/form-data"
+            >
+
+                <input
+                    type="text"
+                    name="title"
+                    placeholder="Material Title"
+                    required
+                >
+
+                <select
+                    name="subject"
+                    required
+                >
+
+                    <option value="">Select Subject</option>
+
+                    <option value="DBMS">DBMS</option>
+                    <option value="Web Technology">Web Technology</option>
+                    <option value="DAA">DAA</option>
+                    <option value="OOPS with C++">OOPS with C++</option>
+                    <option value="Soft Computing">Soft Computing</option>
+                    <option value="DBMS Lab">DBMS Lab</option>
+                    <option value="WT Lab">WT Lab</option>
+                    <option value="DAA Lab">DAA Lab</option>
+                    <option value="Mini Project">Mini Project</option>
+                    <option value="Constitution of India">Constitution of India</option>
+                    <option value="Extras">Extras</option>
+
+                </select>
+
+                <input
+                    type="file"
+                    name="file"
+                    required
+                >
+
+                <button type="submit">
+                    Upload & Approve
+                </button>
+
+            </form>
+
+        </div>
+
+        <h2 style="margin-top:40px;">
+            Uploaded Materials
+        </h2>
+
+        <div class="card-container">
+
+            {% for material in materials %}
+
+            <div class="card">
+
+                <h3>{{ material[1] }}</h3>
+
+                <br>
+
+                <p>
+                    Subject:
+                    {{ material[2] }}
+                </p>
+
+                <br>
+
+                <p>
+                    Status:
+                    {{ material[4] }}
+                </p>
+
+                <br>
+
+                <a href="/approve/{{ material[0] }}">
+                    <button class="upload-btn">
+                        Approve
+                    </button>
+                </a>
+
+                <a href="/delete/{{ material[0] }}">
+                    <button class="upload-btn">
+                        Delete
+                    </button>
+                </a>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>
